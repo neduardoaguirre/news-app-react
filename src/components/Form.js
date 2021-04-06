@@ -3,7 +3,7 @@ import styles from './Form.module.css';
 import useSelectCategory from '../hooks/useSelect';
 import useSelectCountry from '../hooks/useSelect';
 
-const Form = () => {
+const Form = ({ setCategory, setCountry }) => {
   const CATEGORY_OPTIONS = [
     { value: 'breaking-news', label: 'Breaking news' },
     { value: 'business', label: 'Business' },
@@ -29,10 +29,16 @@ const Form = () => {
   );
   const [country, SelectCountry] = useSelectCountry('us', COUNTRY_OPTIONS);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setCategory(category);
+    setCountry(country);
+  };
+
   return (
     <div className={`${styles.search} row`}>
       <div className="col s12 m8 offset-m2">
-        <form>
+        <form onSubmit={handleSubmit}>
           <h3 className={styles.heading}>Get news by country and category</h3>
           <SelectCountry />
           <SelectCategory />
