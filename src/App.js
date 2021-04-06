@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Form from './components/Form';
 
 function App() {
   return (
-    <div>
-      <h1>NEWS</h1>
-    </div>
+    <Fragment>
+      <div className="container white">
+        <Form />
+      </div>
+    </Fragment>
   );
 }
 
