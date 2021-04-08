@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Form.module.css';
 import useSelectCategory from '../hooks/useSelect';
 import useSelectCountry from '../hooks/useSelect';
+import PropTypes from 'prop-types';
 
 const Form = ({ setCategory, setCountry }) => {
   const CATEGORY_OPTIONS = [
@@ -53,6 +54,11 @@ const Form = ({ setCategory, setCountry }) => {
       </div>
     </div>
   );
+};
+
+Form.propTypes = {
+  setCategory: PropTypes.func.isRequired,
+  setCountry: PropTypes.func.isRequired,
 };
 
 export default Form;

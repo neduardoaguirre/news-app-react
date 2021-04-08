@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageNotAvailable from '../images/not-available.png';
+import PropTypes from 'prop-types';
 
 const Article = ({ article }) => {
   const { image, url, title, source } = article;
@@ -11,7 +12,7 @@ const Article = ({ article }) => {
           <div className="card-image">
             <img src={image} alt={title} />
             <span
-              className="new badge transparent card-title"
+              className="new badge indigo card-title"
               data-badge-caption={source.name}
             ></span>
           </div>
@@ -19,7 +20,7 @@ const Article = ({ article }) => {
           <div className="card-image">
             <img src={ImageNotAvailable} alt="Not available" />
             <span
-              className="new badge transparent card-title"
+              className="new badge indigo card-title"
               data-badge-caption={source.name}
             ></span>
           </div>
@@ -40,6 +41,10 @@ const Article = ({ article }) => {
       </div>
     </div>
   );
+};
+
+Article.propTypes = {
+  article: PropTypes.object.isRequired,
 };
 
 export default Article;
