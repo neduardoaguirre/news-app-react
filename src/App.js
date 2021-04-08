@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     const callAPI = async () => {
-      const URL = `https://gnews.io/api/v4/top-headlines?token=${process.env.REACT_APP_API_KEY}&country=${country}&topic=${category}`;
+      const URL = `/.netlify/functions/getNews?country=${country}&category=${category}`;
       setLoading(true);
       const response = await axios.get(URL);
       setNews(response.data.articles);
