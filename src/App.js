@@ -17,9 +17,15 @@ function App() {
       const response = await axios.get(URL);
       setNews(response.data.articles);
       setLoading(false);
+      scroll();
     };
     callAPI();
   }, [country, category]);
+
+  const scroll = () => {
+    const position = document.querySelector('.news');
+    position.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <Fragment>
